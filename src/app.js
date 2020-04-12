@@ -64,6 +64,7 @@ app.delete("/repositories/:id", (request, response) => {
   response.status(204).json({status: 'Repository deleted successfully!'});
 });
 
+
 app.post("/repositories/:id/like", (request, response) => {
   const { id } = request.params;
 
@@ -73,8 +74,10 @@ app.post("/repositories/:id/like", (request, response) => {
   }
 
   repositories[index].likes += 1
-
-  response.status(200).json({likes: repositories[index].likes});
+  
+  response.status(200).json(repositories[index]);
 });
+
+
 
 module.exports = app;
